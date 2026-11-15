@@ -24,12 +24,12 @@ public class TestReaderServiceImpl implements TestReaderService {
             throw new RuntimeException("csvFileName is not set");
         }
         List<Question> questions = new ArrayList<>();
-        try (InputStream is = getClass().getResourceAsStream(csvFileName);
-             CSVReader reader = new CSVReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+        InputStream is = getClass().getResourceAsStream(csvFileName);
+        if (is == null) {
+            throw new RuntimeException("CSV not found: " + csvFileName);
+        }
+        try (CSVReader reader = new CSVReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             List<String[]> allRows = reader.readAll();
-            if (allRows.isEmpty()) {
-                return questions;
-            }
             for (int i = 1; i < allRows.size(); i++) {
                 String[] row = allRows.get(i);
                 if (row.length >= allRows.get(0).length) {
