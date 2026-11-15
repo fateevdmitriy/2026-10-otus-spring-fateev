@@ -5,23 +5,18 @@ import ru.otus.spring.domain.Person;
 
 public class PersonServiceImpl implements PersonService {
 
-    //private final PersonDao dao;
-    private PersonDao dao;
+    private final PersonDao dao;
 
-    /*
     public PersonServiceImpl(PersonDao dao) {
-        this.dao = dao;
-    }
-     */
-
-    public PersonServiceImpl() {
-    }
-
-    public void setDao(PersonDao dao) {
         this.dao = dao;
     }
 
     public Person getByName(String name) {
         return dao.findByName(name);
     }
+
+    public Person getByNameAndAge(String name, int age) {
+        return dao.findByNameAndAge(name, age);
+    }
+
 }

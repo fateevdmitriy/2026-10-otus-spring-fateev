@@ -13,4 +13,8 @@ public class PersonDaoSimple implements PersonDao {
     public Person findByName(String name) {
         return new Person(name, defaultAge);
     }
+
+    public Person findByNameAndAge(String name, int age) {
+        return new Person(name, age);
+    }
 }

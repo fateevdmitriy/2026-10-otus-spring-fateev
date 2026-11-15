@@ -13,43 +13,33 @@ import java.util.List;
 
 public class TestReaderServiceImpl implements TestReaderService {
 
-    private static final String CSV_FILE = "/java_basic_test.csv";
+    private String csvFileName;
 
-    private static final int CSM_MAX_COLUMNS = 6;
+    public void setCsvFileName(String csvFileName) {
+        this.csvFileName = csvFileName;
+    }
 
     public List<Question> loadQuestions() {
+        if (csvFileName == null || csvFileName.isBlank()) {
+            throw new RuntimeException("csvFileName is not set");
+        }
         List<Question> questions = new ArrayList<>();
-
-        try (InputStream is = getClass().getResourceAsStream(CSV_FILE);
+        try (InputStream is = getClass().getResourceAsStream(csvFileName);
              CSVReader reader = new CSVReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
-            if (is == null) {
-                throw new RuntimeException("CSV file not found: " + CSV_FILE);
-            }
             List<String[]> allRows = reader.readAll();
+            if (allRows.isEmpty()) {
+                return questions;
+            }
             for (int i = 1; i < allRows.size(); i++) {
                 String[] row = allRows.get(i);
-                if (row.length >= CSM_MAX_COLUMNS) {
-                    List<String> answers = List.of(row[1], row[2], row[3], row[4]);
-                    String correctAnswerLabel = row[5].trim().toLowerCase();
-                    String correctAnswer = getAnswerByLabel(answers, correctAnswerLabel);
-                    String question = row[0];
-                    questions.add(new Question(question, answers, correctAnswer));
+                if (row.length >= allRows.get(0).length) {
+                    questions.add(new Question(row[0].trim(), row[5].trim(),
+                            List.of(row[1].trim(), row[2].trim(), row[3].trim(), row[4].trim())));
                 }
             }
         } catch (IOException | CsvException e) {
             throw new RuntimeException("Error reading CSV file", e);
         }
         return questions;
-    }
-
-    private String getAnswerByLabel(List<String> options, String label) {
-        int index = switch (label) {
-            case "a" -> 0;
-            case "b" -> 1;
-            case "c" -> 2;
-            case "d" -> 3;
-            default -> throw new IllegalArgumentException("Unknown answer label: " + label);
-        };
-        return options.get(index);
     }
 }

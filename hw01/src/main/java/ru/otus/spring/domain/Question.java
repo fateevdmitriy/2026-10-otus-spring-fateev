@@ -9,10 +9,10 @@ public class Question {
 
     private final String correctAnswer;
 
-    public Question(String questionText, List<String> answers, String correctAnswer) {
+    public Question(String questionText, String correctAnswer, List<String> answers) {
         this.questionText = questionText;
-        this.answers = answers;
         this.correctAnswer = correctAnswer;
+        this.answers = answers;
     }
 
     public String getQuestionText() {
