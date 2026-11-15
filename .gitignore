@@ -1,16 +1,40 @@
-# Compiled class file
+### Gradle ###
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### Maven (если используется) ###
+target/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+out/
+# Удалены исключения для out/, чтобы не коммитить .class файлы
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Package Files & Compiled output ###
 *.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
 *.nar
@@ -19,6 +43,27 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+### Logs ###
+*.log
 hs_err_pid*
 replay_pid*
+
+### Coverage & Reports ###
+**/jacoco/
+**/coverage/
+*.exec
+
+### OS / System ###
+.DS_Store
+Thumbs.db
+
+### Secrets (рекомендуется добавить) *.key
+*.pem
+application-local.yml
+secrets/
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
