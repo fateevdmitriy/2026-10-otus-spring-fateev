@@ -29,16 +29,27 @@ public class TestReaderServiceImpl implements TestReaderService {
             for (int i = 1; i < allRows.size(); i++) {
                 String[] row = allRows.get(i);
                 if (row.length >= CSM_MAX_COLUMNS) {
-                    questions.add(new Question(
-                            row[0],
-                            List.of(row[1], row[2], row[3], row[4]),
-                            row[5]
-                    ));
+                    List<String> answers = List.of(row[1], row[2], row[3], row[4]);
+                    String correctAnswerLabel = row[5].trim().toLowerCase();
+                    String correctAnswer = getAnswerByLabel(answers, correctAnswerLabel);
+                    String question = row[0];
+                    questions.add(new Question(question, answers, correctAnswer));
                 }
             }
         } catch (IOException | CsvException e) {
             throw new RuntimeException("Error reading CSV file", e);
         }
         return questions;
+    }
+
+    private String getAnswerByLabel(List<String> options, String label) {
+        int index = switch (label) {
+            case "a" -> 0;
+            case "b" -> 1;
+            case "c" -> 2;
+            case "d" -> 3;
+            default -> throw new IllegalArgumentException("Unknown answer label: " + label);
+        };
+        return options.get(index);
     }
 }

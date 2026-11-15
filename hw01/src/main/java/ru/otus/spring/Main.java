@@ -18,8 +18,8 @@ public class Main {
         List<Question> questions = testReader.loadQuestions();
         for (Question q : questions) {
             System.out.println(q.getQuestionText());
-            for (int i = 0; i < q.getOptions().size(); i++) {
-                System.out.println((i + 1) + ". " + q.getOptions().get(i));
+            for (int i = 0; i < q.getAnswers().size(); i++) {
+                System.out.println((i + 1) + ". " + q.getAnswers().get(i));
             }
             System.out.println("Correct: " + q.getCorrectAnswer() + "\n");
         }

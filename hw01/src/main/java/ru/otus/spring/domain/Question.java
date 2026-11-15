@@ -5,13 +5,13 @@ import java.util.List;
 public class Question {
     private final String questionText;
 
-    private final List<String> options;
+    private final List<String> answers;
 
     private final String correctAnswer;
 
-    public Question(String questionText, List<String> options, String correctAnswer) {
+    public Question(String questionText, List<String> answers, String correctAnswer) {
         this.questionText = questionText;
-        this.options = options;
+        this.answers = answers;
         this.correctAnswer = correctAnswer;
     }
 
@@ -19,8 +19,8 @@ public class Question {
         return questionText;
     }
 
-    public List<String> getOptions() {
-        return options;
+    public List<String> getAnswers() {
+        return answers;
     }
 
     public String getCorrectAnswer() {
