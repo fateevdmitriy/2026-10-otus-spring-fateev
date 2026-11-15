@@ -8,11 +8,11 @@ import ru.otus.spring.service.PersonService;
 public class Main {
 
     public static void main(String[] args) {
-        // TODO: создайте здесь класс контекста
+        // создание класс контекста
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/spring-context.xml");
-        // TODO: Получите Person Service
+        // получение Person Service
         PersonService service = context.getBean(PersonService.class);
-        // Получите Person "Ivan"
+        // получение Person "Ivan"
         Person ivan = service.getByName("Ivan");
 
         System.out.println("name: " + ivan.getName() + " age: " + ivan.getAge());
