@@ -1,6 +1,6 @@
-package ru.otus.spring.service;
+package ru.otus.hw.service.old;
 
-import ru.otus.spring.domain.Person;
+import ru.otus.hw.domain.old.Person;
 
 public interface PersonService {
 

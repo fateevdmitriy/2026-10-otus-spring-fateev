@@ -1,4 +1,4 @@
-package ru.otus.spring.domain;
+package ru.otus.hw.domain.old;
 
 import java.util.List;
 import java.util.Map;
@@ -6,11 +6,11 @@ import java.util.Map;
 public class Test {
     private final Person person;
 
-    private final List<Question> questions;
+    private final List<QuestionOld> questions;
 
-    private final Map<Question, String> results;
+    private final Map<QuestionOld, String> results;
 
-    public Test(Person person, List<Question> questions, Map<Question, String> results) {
+    public Test(Person person, List<QuestionOld> questions, Map<QuestionOld, String> results) {
         this.person = person;
         this.questions = questions;
         this.results = results;
@@ -20,11 +20,11 @@ public class Test {
         return person;
     }
 
-    public List<Question> getQuestions() {
+    public List<QuestionOld> getQuestions() {
         return questions;
     }
 
-    public Map<Question, String> getResults() {
+    public Map<QuestionOld, String> getResults() {
         return results;
     }
 

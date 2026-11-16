@@ -1,39 +1,40 @@
-package ru.otus.spring;
+package ru.otus.hw;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.otus.spring.domain.Person;
-import ru.otus.spring.domain.Question;
-import ru.otus.spring.domain.Test;
-import ru.otus.spring.service.PersonService;
-import ru.otus.spring.service.TestReaderService;
-import ru.otus.spring.service.TestRunnerService;
+import ru.otus.hw.domain.old.Person;
+import ru.otus.hw.domain.old.QuestionOld;
+import ru.otus.hw.domain.old.Test;
+import ru.otus.hw.service.TestRunnerService;
+import ru.otus.hw.service.old.PersonService;
+import ru.otus.hw.service.old.TestRunnerServiceOld;
 
-import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Application {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/spring-context.xml");
-        PersonService service = context.getBean(PersonService.class);
-        TestReaderService testReader = context.getBean(TestReaderService.class);
+        //PersonService service = context.getBean(PersonService.class);
         TestRunnerService testRunner = context.getBean(TestRunnerService.class);
 
+        /*
         Person person = service.getByName(getNameFromUser(scanner));
         System.out.println("\nHello, " + person.getName() + "!\nStarting the test:\n");
+        */
+        testRunner.run();
 
-        List<Question> questions = testReader.loadQuestions();
-        Test test = testRunner.run(person, questions, scanner);
-
+        /*
         System.out.println(System.lineSeparator() + "Results:");
-        for (Question q : test.getQuestions()) {
+        for (QuestionOld q : test.getQuestions()) {
             String userAnswer = test.getResults().get(q);
             boolean isCorrect = q.getCorrectAnswer().equalsIgnoreCase(userAnswer);
             System.out.printf("Question: %s - %s%n", isCorrect ? "Correct" : "Incorrect", q.getQuestionText());
         }
         System.out.printf("%nTotal: correct answers %d out of %d%n", test.getCorrectCount(), test.getQuestions().size());
         scanner.close();
+         */
     }
 
     private static String getNameFromUser(Scanner scanner) {

@@ -1,15 +1,15 @@
-package ru.otus.spring.domain;
+package ru.otus.hw.domain.old;
 
 import java.util.List;
 
-public class Question {
+public class QuestionOld {
     private final String questionText;
 
     private final List<String> answers;
 
     private final String correctAnswer;
 
-    public Question(String questionText, String correctAnswer, List<String> answers) {
+    public QuestionOld(String questionText, String correctAnswer, List<String> answers) {
         this.questionText = questionText;
         this.correctAnswer = correctAnswer;
         this.answers = answers;

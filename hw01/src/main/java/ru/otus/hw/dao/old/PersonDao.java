@@ -1,6 +1,6 @@
-package ru.otus.spring.dao;
+package ru.otus.hw.dao.old;
 
-import ru.otus.spring.domain.Person;
+import ru.otus.hw.domain.old.Person;
 
 public interface PersonDao {
 
