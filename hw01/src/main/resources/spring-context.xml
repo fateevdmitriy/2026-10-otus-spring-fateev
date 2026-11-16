@@ -8,6 +8,9 @@
         <property name="csvFileName" value="/java_basic_test.csv"/>
     </bean>
 
+    <bean id="testRunnerService" class="ru.otus.spring.service.TestRunnerServiceImpl">
+    </bean>
+
     <bean id="personDao" class="ru.otus.spring.dao.PersonDaoSimple">
         <property name="defaultAge" value="0"/>
     </bean>
