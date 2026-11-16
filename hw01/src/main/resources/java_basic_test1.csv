@@ -1,0 +1,12 @@
+# Добавить сюда своих вопросов! Эту строку надо пропустить при настройке CsvToBean (withSkipLines)
+Is there life on Mars?;Science doesn't know this yet%true|Certainly. The red UFO is from Mars. And green is from Venus%false|Absolutely not%false
+How should resources be loaded form jar in Java?;ClassLoader#geResourceAsStream or ClassPathResource#getInputStream%true|ClassLoader#geResource#getFile + FileReader%false|Wingardium Leviosa%false
+Which option is a good way to handle the exception?;@SneakyThrow%false|e.printStackTrace()%false|Rethrow with wrapping in business exception (for example, QuestionReadException)%true|Ignoring exception%false
+What does the abbreviation JVM stand for?;Java Verified Machine%false|Java Variable Manager%false|Java Virtual Machine%true|Joint Visual Module%false
+What file extension do compiled Java classes have?;.java%false|.exe%false|.javac%false|.class%true
+Which OOP principle allows one class to acquire properties from another?;Inheritance%true|Encapsulation%false|Polymorphism%false|Abstraction%false
+Which of these data types is an integer type that occupies 8 bytes of memory?;int%false|short%false|long%true|byte%false
+Which keyword is used to create an instance (object) of a class?;create%false|build%false|object%false|new%true
+What is the private access modifier used for?;To make a variable accessible from any package%false|To make a variable accessible only within its own class%true|To prevent a variable from being changed%false|To make a variable visible to subclasses%false
+Which construct is used to handle possible errors during program execution?;try-catch%true|if-else%false|switch-case%false|for-loop%false
+Which command is used to run a Java program from the command line?;compile%false|run ClassName%false|java ClassName%true|start ClassName%false
