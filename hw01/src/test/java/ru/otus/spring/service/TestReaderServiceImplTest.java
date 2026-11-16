@@ -22,7 +22,6 @@ class TestReaderServiceImplTest {
     void loadQuestions_shouldReturnAllQuestions() {
         testReaderService.setCsvFileName("/java_basic_test.csv");
         List<Question> questions = testReaderService.loadQuestions();
-
         assertThat(questions).isNotEmpty();
         assertThat(questions).hasSize(10);
     }
@@ -31,7 +30,6 @@ class TestReaderServiceImplTest {
     void loadQuestions_shouldSetCorrectQuestionText() {
         testReaderService.setCsvFileName("/java_basic_test.csv");
         List<Question> questions = testReaderService.loadQuestions();
-
         Question firstQuestion = questions.get(0);
         assertThat(firstQuestion.getQuestionText()).isEqualTo("What does the abbreviation JVM stand for?");
     }
@@ -40,7 +38,6 @@ class TestReaderServiceImplTest {
     void loadQuestions_shouldSetCorrectAnswers() {
         testReaderService.setCsvFileName("/java_basic_test.csv");
         List<Question> questions = testReaderService.loadQuestions();
-
         Question firstQuestion = questions.get(0);
         assertThat(firstQuestion.getAnswers()).hasSize(4);
         assertThat(firstQuestion.getAnswers()).contains(
@@ -55,7 +52,6 @@ class TestReaderServiceImplTest {
     void loadQuestions_shouldSetCorrectAnswer() {
         testReaderService.setCsvFileName("/java_basic_test.csv");
         List<Question> questions = testReaderService.loadQuestions();
-
         Question firstQuestion = questions.get(0);
         assertThat(firstQuestion.getCorrectAnswer()).isEqualTo("Java Virtual Machine");
     }
