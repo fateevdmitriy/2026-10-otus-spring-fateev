@@ -6,6 +6,4 @@ public interface PersonDao {
 
     Person findByName(String name);
 
-    Person findByNameAndAge(String name, int age);
-
 }

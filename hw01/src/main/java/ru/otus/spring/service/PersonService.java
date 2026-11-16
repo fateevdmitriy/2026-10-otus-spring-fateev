@@ -6,5 +6,4 @@ public interface PersonService {
 
     Person getByName(String name);
 
-    Person getByNameAndAge(String name, int age);
 }

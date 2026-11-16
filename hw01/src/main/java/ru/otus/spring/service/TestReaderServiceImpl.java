@@ -37,6 +37,7 @@ public class TestReaderServiceImpl implements TestReaderService {
                             List.of(row[1].trim(), row[2].trim(), row[3].trim(), row[4].trim())));
                 }
             }
+            is.close();
         } catch (IOException | CsvException e) {
             throw new RuntimeException("Error reading CSV file", e);
         }

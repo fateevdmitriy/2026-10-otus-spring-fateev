@@ -16,12 +16,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/spring-context.xml");
         PersonService service = context.getBean(PersonService.class);
-        Person person = service.getByNameAndAge(getNameFormUser(scanner), getAgeFromUser(scanner));
+        Person person = service.getByName(getNameFormUser(scanner));
         System.out.println("\nHello, " + person.getName() + "!\nStarting the test:\n");
         TestReaderService testReader = context.getBean(TestReaderService.class);
         List<Question> questions = testReader.loadQuestions();
         List<String> answers = runTest(questions, scanner);
-        System.out.println("\nResults:");
+        System.out.println("Results:");
         int correctCount = 0;
         for (int i = 0; i < questions.size(); i++) {
             Question q = questions.get(i);
@@ -30,11 +30,12 @@ public class Main {
             if (isCorrect) {
                 correctCount++;
             }
-            System.out.printf("Question %d: %s %s%n", i + 1,
+            System.out.printf("Question %d: %s -> %s%n", i + 1,
                     isCorrect ? "Correct" : "Incorrect",
                     q.getQuestionText());
         }
         System.out.printf("%nTotal: correct answers %d out of %d%n", correctCount, questions.size());
+        scanner.close();
     }
 
     private static List<String> runTest(List<Question> questions, Scanner scanner) {
@@ -91,25 +92,6 @@ public class Main {
                 return lastName + " " + firstName;
             }
             System.out.println("First name cannot be empty. Try again.");
-        }
-    }
-
-    private static int getAgeFromUser(Scanner scanner) {
-        while (true) {
-            System.out.print("Enter age (optional): ");
-            String input = scanner.nextLine().trim();
-            if (input.isEmpty()) {
-                return 0;
-            }
-            try {
-                int age = Integer.parseInt(input);
-                if (age > 0) {
-                    return age;
-                }
-                System.out.println("Age must be greater than 0. Try again.");
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Enter a number. Try again.");
-            }
         }
     }
 }

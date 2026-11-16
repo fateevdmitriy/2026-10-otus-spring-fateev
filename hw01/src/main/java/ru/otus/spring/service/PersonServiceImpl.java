@@ -15,8 +15,4 @@ public class PersonServiceImpl implements PersonService {
         return dao.findByName(name);
     }
 
-    public Person getByNameAndAge(String name, int age) {
-        return dao.findByNameAndAge(name, age);
-    }
-
 }
