@@ -22,16 +22,14 @@ public class TestServiceImpl implements TestService {
         ioService.printFormattedLine("Please answer the questions below:%n");
         // Получить вопросы из дао и вывести их с вариантами ответов
         List<Question> questions = questionDao.findAll();
+
         for (Question q : questions) {
             if (q.answers() == null || q.answers().isEmpty()) {
-                ioService.printLine("Q: " + q.text() + ", Answers: " + q.answers());
                 continue;
             }
-            ioService.printFormattedLine("Question: %s%n", q.text());
-            for (int i = 0; i < q.answers().size(); i++) {
-                Answer answer = q.answers().get(i);
-                ioService.printFormattedLine("%d. %s%n", i + 1, answer.text());
-            }
+            int usersAnswerIndex = getUserAnswerIndex(q);
+            // Сохранить ответ в результаты теста
+            //
             ioService.printLine("");
         }
     }
@@ -43,14 +41,35 @@ public class TestServiceImpl implements TestService {
             if (!lastName.isEmpty()) {
                 break;
             }
-            System.out.println("Last name cannot be empty. Try again.");
+            ioService.printLine("Last name cannot be empty. Try again.");
         }
         while (true) {
             String firstName = ioService.readLine("Enter first name: ");
             if (!firstName.isEmpty()) {
                 return lastName + " " + firstName;
             }
-            System.out.println("First name cannot be empty. Try again.");
+            ioService.printLine("First name cannot be empty. Try again.");
+        }
+    }
+
+    private int getUserAnswerIndex(Question q) {
+        int maxAnswerIndex = q.answers().size();
+        ioService.printFormattedLine("Question: %s", q.text());
+        for (int i = 0; i < maxAnswerIndex; i++) {
+            Answer answer = q.answers().get(i);
+            ioService.printFormattedLine("%d. %s", i + 1, answer.text());
+        }
+        while (true) {
+            String input = ioService.readLine("Your answer (1-" + maxAnswerIndex + "): ");
+            try {
+                int index = Integer.parseInt(input);
+                if (index >= 1 && index <= maxAnswerIndex) {
+                    return index;
+                }
+                ioService.printFormattedLine("Invalid input. Enter a number 1-%d.", maxAnswerIndex);
+            } catch (NumberFormatException e) {
+                ioService.printFormattedLine("Invalid input. Enter a number 1-%d.", maxAnswerIndex);
+            }
         }
     }
 
