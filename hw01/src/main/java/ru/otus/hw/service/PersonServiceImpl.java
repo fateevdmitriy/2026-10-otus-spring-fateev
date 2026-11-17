@@ -1,7 +1,7 @@
-package ru.otus.hw.service.old;
+package ru.otus.hw.service;
 
-import ru.otus.hw.dao.old.PersonDao;
-import ru.otus.hw.domain.old.Person;
+import ru.otus.hw.dao.PersonDao;
+import ru.otus.hw.domain.Person;
 
 public class PersonServiceImpl implements PersonService {
 

@@ -1,6 +1,6 @@
-package ru.otus.hw.service.old;
+package ru.otus.hw.service;
 
-import ru.otus.hw.domain.old.Person;
+import ru.otus.hw.domain.Person;
 
 public interface PersonService {
 

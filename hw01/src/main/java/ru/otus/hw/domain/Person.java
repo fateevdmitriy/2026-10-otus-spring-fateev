@@ -1,4 +1,4 @@
-package ru.otus.hw.domain.old;
+package ru.otus.hw.domain;
 
 public class Person {
 

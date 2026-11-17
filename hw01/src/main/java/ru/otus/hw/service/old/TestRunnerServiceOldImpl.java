@@ -2,9 +2,9 @@ package ru.otus.hw.service.old;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
-import ru.otus.hw.domain.old.Person;
+import ru.otus.hw.domain.Person;
 import ru.otus.hw.domain.old.QuestionOld;
-import ru.otus.hw.domain.old.Test;
+import ru.otus.hw.domain.Test;
 
 import java.io.IOException;
 import java.io.InputStream;

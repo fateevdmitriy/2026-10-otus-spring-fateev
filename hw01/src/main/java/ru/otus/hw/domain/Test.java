@@ -1,4 +1,6 @@
-package ru.otus.hw.domain.old;
+package ru.otus.hw.domain;
+
+import ru.otus.hw.domain.old.QuestionOld;
 
 import java.util.List;
 import java.util.Map;

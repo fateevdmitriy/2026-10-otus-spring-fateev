@@ -3,6 +3,7 @@ package ru.otus.hw.service;
 import lombok.RequiredArgsConstructor;
 import ru.otus.hw.dao.QuestionDao;
 import ru.otus.hw.domain.Answer;
+import ru.otus.hw.domain.Person;
 import ru.otus.hw.domain.Question;
 
 import java.util.List;
@@ -12,13 +13,18 @@ public class TestServiceImpl implements TestService {
 
     private final IOService ioService;
 
+    private final PersonService personService;
+
     private final QuestionDao questionDao;
 
     @Override
     public void executeTest() {
+
         String fullName = getNameFromUser();
+        Person person = personService.getByName(fullName);
+
         ioService.printLine("");
-        ioService.printFormattedLine("Hello, %s!", fullName);
+        ioService.printFormattedLine("Hello, %s!", person.getName());
         ioService.printFormattedLine("Please answer the questions below:%n");
         // Получить вопросы из дао и вывести их с вариантами ответов
         List<Question> questions = questionDao.findAll();

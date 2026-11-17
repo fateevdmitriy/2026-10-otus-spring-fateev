@@ -1,6 +1,6 @@
-package ru.otus.hw.dao.old;
+package ru.otus.hw.dao;
 
-import ru.otus.hw.domain.old.Person;
+import ru.otus.hw.domain.Person;
 
 public class PersonDaoSimple implements PersonDao {
 
