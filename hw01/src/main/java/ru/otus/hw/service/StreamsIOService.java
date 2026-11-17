@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class StreamsIOService implements IOService {
     private final PrintStream printStream;
 
-    private final InputStream inputStream;
+    private final Scanner scanner;
 
     public StreamsIOService(PrintStream printStream, InputStream inputStream) {
         this.printStream = printStream;
-        this.inputStream = inputStream;
+        this.scanner = new Scanner(inputStream);
     }
 
     @Override
@@ -27,6 +27,6 @@ public class StreamsIOService implements IOService {
     @Override
     public String readLine(String prompt) {
         printStream.print(prompt);
-        return new Scanner(inputStream).nextLine().trim();
+        return scanner.nextLine().trim();
     }
 }

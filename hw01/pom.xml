@@ -26,8 +26,6 @@
     </properties>
 
     <dependencies>
-        <!-- Добавлена зависимость spring-context -->
-        <!-- Это зависимость spring-context, содержит базовую функциональность IoC -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
