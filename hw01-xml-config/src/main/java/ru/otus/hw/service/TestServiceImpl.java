@@ -27,8 +27,10 @@ public class TestServiceImpl implements TestService {
         ioService.printLine("");
         ioService.printFormattedLine("Hello, %s!", person.getName());
         ioService.printFormattedLine("Please answer the questions below:%n");
+
         List<Question> questions = questionDao.findAll();
         List<Answer> userAnswers = new ArrayList<>();
+
         for (Question q : questions) {
             userAnswers.add(getUsersAnswer(q));
         }
