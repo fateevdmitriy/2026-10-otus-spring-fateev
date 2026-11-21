@@ -19,9 +19,9 @@ public class CsvQuestionDao implements QuestionDao {
 
     @Override
     public List<Question> findAll() {
-        try (InputStream is = getClass().getResourceAsStream("/" + fileNameProvider.getTestFileName())) {
+        try (InputStream is = getClass().getResourceAsStream(fileNameProvider.getTestFileName())) {
             if (is == null) {
-                throw new QuestionReadException("CSV file not found: /" + fileNameProvider.getTestFileName());
+                throw new QuestionReadException("CSV file not found: " + fileNameProvider.getTestFileName());
             }
             List<QuestionDto> dtos = new CsvToBeanBuilder<QuestionDto>(new InputStreamReader(is))
                     .withSeparator(';')
