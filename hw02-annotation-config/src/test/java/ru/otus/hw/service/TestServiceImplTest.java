@@ -10,7 +10,6 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-
 class TestServiceImplTest {
 
     @Test
