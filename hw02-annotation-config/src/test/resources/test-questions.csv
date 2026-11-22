@@ -1,0 +1,4 @@
+# Test questions for unit testing
+Which keyword is used to declare a constant in Java?;final%true|static%false|private%false
+Which keyword defines an interface in Java?;interface%true|class%false|abstract%false
+What does JVM stand for?;Java Virtual Machine%true|Java Variable Manager%false|Java Verified Machine%false
